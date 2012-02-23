@@ -12,6 +12,12 @@ define([
 
 		initialize : function() {
 			this.fetch();
+
+			this.model.bind( "change", this.change, this );
+		},
+
+		change : function() {
+			console.log( "Testar uppdatering av model" );
 		}
 	});
 

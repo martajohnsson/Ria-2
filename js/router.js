@@ -34,8 +34,12 @@ define([
 				var indexView = new IndexView( this.categoryCollection, this.taskCollection, this.userCollection );
 				indexView.render();
 
-				var categoryCollectionView = new CategoryCollectionView( { collection : this.categoryCollection } );
-				categoryCollectionView.render();
+				// Checks for tasks, if none dont show anything.
+				if ( this.taskCollection.models.length > 0 ) {
+					var categoryCollectionView = new CategoryCollectionView( { collection : this.categoryCollection } );
+					categoryCollectionView.render();
+				}
+
 				
 				$('#createTask').html( indexView.el );
 			},

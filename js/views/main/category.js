@@ -6,7 +6,6 @@ define(
 
 	function( Backbone, TodoView )  {
 		var categoryView = Backbone.View.extend({
-			tagName : 'div',
 			className : 'category',
 
 			initialize : function() {
@@ -17,8 +16,10 @@ define(
 
 				var taskCount = this.model.attributes.task.models.length;
 				for( var i = 0; i < taskCount; i++ ) {
-					var todoView = new TodoView( {model : this.model.attributes.task.models[i]} );
-					$(this.el).append( todoView.render().el );
+					var el = $('<div class="todo">');
+					var todoView = new TodoView( { el : el, model : this.model.attributes.task.models[i]} );
+					todoView.render();
+					$(this.el).append( el );
 				}
 
 				return this;
