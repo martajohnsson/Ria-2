@@ -3,13 +3,14 @@ define(
 
 	function( Backbone ) {
 		var TodoView = Backbone.View.extend({
-
-			initialize : function() {
+			className : 'todo',
+			tagName: "div",
+			initialize : function(options) {
 				this.template = _.template( $('#todo-template').html() );
 			},
 
 			events : {
-				'click .todo' : 'clickTodo'
+				'click': 'clickTodo'
 			},
 
 			clickTodo : function( e ) {

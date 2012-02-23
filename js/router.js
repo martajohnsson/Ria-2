@@ -42,6 +42,7 @@ define([
 
 				
 				$('#createTask').html( indexView.el );
+				$('#todos-holder').html( categoryCollectionView.el ); // router should be responsible for positioning
 			},
 
 			CreateUser : function() {
