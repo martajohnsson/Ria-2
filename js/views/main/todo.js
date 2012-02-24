@@ -10,11 +10,11 @@ define(
 			},
 
 			events : {
-				'click': 'clickTodo'
+				'click .mark-completed': 'markCompleted'
 			},
 
-			clickTodo : function( e ) {
-				console.log( "Clicked: ", e );
+			markCompleted : function( e ) {
+				this.model.toggleCompleted();
 			},
 
 			render : function() {

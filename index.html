@@ -7,18 +7,17 @@
 
     <!-- Templates -->
     <script type="text/template" id="create-task-template">
-        <h2>Create Task</h2>
-    	<form action="" method="POST" id="create-task-form">
-            <label for="categories">Category</label>
-            <select name="select-category" id="create-task-select-category" class="task-category">
-                <% _.each( category, function( category ) { %>
-                    <option value="<%= category.attributes.id %>"><%= category.attributes.label %></option>
-                <% }); %>
-            </select>
-    		<label for="task-content">Task:</label>
-    		<input type="text" name="task-content" class="task-content" />
-    		<input type="button" name="task-submit" id="submit-task-form" value="Add task" />
-    	</form>
+        <div class="create-task-holder">
+            <form action="" method="POST" id="create-task-form">
+                <input type="text" name="task-content" class="task-content" size="60" />
+        		<select name="select-category" id="create-task-select-category" class="task-category">
+                    <% _.each( category, function( category ) { %>
+                        <option value="<%= category.attributes.id %>"><%= category.attributes.label %></option>
+                    <% }); %>
+                </select>
+                <input type="button" name="task-submit" id="submit-task-form" value="Add task" />
+        	</form>
+        </div>
     </script>
 
     <!-- Create user template. -->
@@ -42,7 +41,7 @@
 
     <!-- Todos -->
     <script type="text/template" id="todo-template">
-            <p><%= todo.content %></p>
+            <p><%= todo.content %> <input type="checkbox" name="completed" class="mark-completed" /></p>
             <p><%= todo.time %></p>
     </script>
 
