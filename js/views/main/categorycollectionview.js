@@ -12,9 +12,7 @@ define(
 			initialize : function() {
 				this.collection.bind( 'all', this.render, this );
 			},
-			test : function() {
-				console.log( "event" );
-			},
+
 			render : function() {
 				this.$el.empty();
 				for( var i = 0; i < this.collection.length; i++ ) {

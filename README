@@ -1,9 +1,113 @@
 Simple TODO application.
---------------------------------------------------------
+------------------------------------------------------------
 This is my first application using backbone.
+The application is developed using the AMD approch
+as making the javascript application modular.
 
-This applications uses the following libraries.
+This applications uses the following libraries:
 * Backbone
   * BackboneRelational
   * Backbone.localStorage
 * Underscore
+* Require
+  * Order
+
+(All the libraries can be found in 'js/lib/')
+
+Index.html loads all the nessecary libraries to start the
+application. It also contains templates used by Underscore
+throughout the whole application.
+
+------------------------------------------------------------
+FILE DESCRIPTIONS (only .js)
+------------------------------------------------------------
+
+router.js
+The router for the application, what more is there to say?
+the router is switching users from views.
+
+main.js
+Creates all the shortnames for the libraries using Require.js
+
+app.js
+Initializes the application.
+
+------------------------------------------------------------
+COLLECTIONS:
+------------------------------------------------------------
+
+collections/CategoryCollection.js
+A collection of all the categories used by the application.
+Just a simple collection, nothing special going on here.
+
+collections/TaskCollection.js
+Another basic collection of all the tasks in the app.
+
+collections/TodoEventCollection.js
+Another basic collection, nothing special here either.
+
+collections/UserCollection.js
+Nothing special, contains the user.
+
+------------------------------------------------------------
+MODELS:
+------------------------------------------------------------
+
+models/CategoryModel.js
+A simple relational model that represents a category-model.
+Some validation but other then that, nothing special.
+
+models/TaskModel.js
+Heres the biggest and the most used model throughout the
+application, the TaskModel.
+This contains relations to the CategoryModel and the 
+UserModel. Is also contains a toggleCompleted() function
+that toggles the completed-attribute of the current task.
+And a validation function.
+
+models/TodoEventModel.js
+A model that will, in the future, contain a relationship
+to a TaskModel. This model is used for a event list
+that has not yet been implemented in the application.
+Planned to be used as a "history".
+
+models/UserModel.s
+The user model, contains a validator and nothing else.
+
+------------------------------------------------------------
+VIEWS:
+------------------------------------------------------------
+
+views/main/index.js
+The first view in the application. Gets all the collections
+need for the application to function on runtime. The view
+also does some event-binding to the taskCollection, ie 
+when adding a new task. This view uses the underscore
+templating functionallity to create a form and get the values
+when need for a new task.
+
+views/main/categorycollectionview.js
+(loong name!)
+This is a important view for the application, it loops
+through the taskcollection and then creates separate
+category views for each category-type in the collection.
+
+views/main/category.js
+This view shows the category label and then loops through
+its task-relation and creates a new TodoView for each of them.
+
+views/main/todo.js
+This view adds the incoming task to the DOM so it's visible.
+This view also has two events, a 'change:completed'-event that
+is bound to the view on init, wich changes some styling
+on the current task if completed is toggled. The other event
+is markCompleted, which is triggred when the user checks
+the checkbox for the todo.
+
+views/user/create.js
+This view is presented if the localStorage does not contain
+any user. the application is bound to only have one user per
+broswer so that i can be used localy without any user-complications.
+This renders a view from a template using Underscore.
+
+------------------------------------------------------------
