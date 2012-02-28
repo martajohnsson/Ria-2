@@ -23,7 +23,7 @@
 }
 
 body, html {
-    background: #E0E0E0; font-family: "Roboto", arial; color: #666666; height: 100%;
+    background: #E0E0E0; font-family: "Roboto", arial; color: #666666; height: 99%;
 }
 
 h1 { font-size: 32px; line-height: 55px; text-shadow: 1px 1px 1px #B8B8B8; }
@@ -32,7 +32,7 @@ h3 { font-size: 16px; line-height: 32px; text-shadow: 1px 1px 1px #B8B8B8; }
 p { font-size: 12px; line-height: 18px; }
 
 /* Wrapper */
-#wrapper { width: 100%; height: 100%; overflow-y: hidden; overflow-x: visible; }
+#wrapper { width: 100%; height: 99%; overflow-y: hidden; overflow-x: visible; }
 /* createTask -view */
 #createTask { background: #141414; width: 100%; height: 70px; padding: 10px 0; }
     .create-task-holder { margin: 10px; }
@@ -43,14 +43,15 @@ p { font-size: 12px; line-height: 18px; }
 
 #create-user { position: absolute; top: 100px; left: 100px; background: red;}
 
-#todos-holder{ max-height: 80%; width: 99%; float: left; border: 1px solid red; }
-.todo-wrapper { max-height: 80%; width: 99%; float: left; border: 1px solid green; }
+#todos-holder{ max-height: 90%; width: 99%; overflow: hidden; }
+.todo-wrapper { max-height: 90%; width: 99%; overflow: hidden; }
 
-.category { width: 300px; height: 90%; float: left; padding: 0px 10px; overflow: auto; }
+.category { width: 300px; height: 550px; float: left; padding: 0px 10px; overflow: auto; }
     .category h2 { text-transform: lowercase; font-variant : small-caps;}
     .todo  { padding: 6px; background: ; margin: 0 0 10px 0; border: 1px solid #999999; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
     /*.todo:nth-child(odd) {background: green;}
 */
     .todo p.time { color: #fff; }
+    .todo .mark-completed { float: right; }
 
     

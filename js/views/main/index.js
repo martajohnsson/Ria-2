@@ -21,12 +21,7 @@ define(
 			},
 
 			events : {
-				'click #submit-task-form' : 'submitForm',
-				'click h2' : 'test'
-			},
-			
-			test: function(){
-				console.log("clicked the headline woo!");
+				'click #submit-task-form' : 'submitForm'
 			},
 
 			addOne : function( taskModel ) {
@@ -42,9 +37,6 @@ define(
 			submitForm : function( e ) {
 				// Get the needed values for a task.
 				var taskContent = this.$('.task-content').val();
-
-				// reset the taskContent form.
-				console.log( "Content:", $('.task-content').html('') );
 				var taskCategoryId = this.$('.task-category').val();
 				var category = this.categoryCollection.get( taskCategoryId );
 				var user = this.userCollection.at( 0 );

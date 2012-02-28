@@ -5,7 +5,8 @@ define(
 		var TodoView = Backbone.View.extend({
 			className : 'todo',
 			tagName: "div",
-			initialize : function(options) {
+
+			initialize : function( options ) {
 				this.template = _.template( $('#todo-template').html() );
 			},
 
