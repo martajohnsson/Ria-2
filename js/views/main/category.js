@@ -27,14 +27,3 @@ define(
 		return categoryView;
 	}
 );
-/*
-	this.model
-	Rendera category model.
-
-	label,
-	taskCollectionView,
-	this.model.task,
-		- todoItem.js
-	
-
-*/

@@ -17,7 +17,6 @@ define(
 				this.userCollection = userCollection;
 
 				this.taskCollection.bind( 'add', this.addOne, this );
-
 			},
 
 			events : {

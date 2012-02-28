@@ -48,7 +48,7 @@ p { font-size: 12px; line-height: 18px; }
 
 .category { width: 300px; height: 550px; float: left; padding: 0px 10px; overflow: auto; }
     .category h2 { text-transform: lowercase; font-variant : small-caps;}
-    .todo  { padding: 6px; background: ; margin: 0 0 10px 0; border: 1px solid #999999; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+    .todo  { padding: 6px; margin: 0 0 10px 0; border: 1px solid #999999; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
     /*.todo:nth-child(odd) {background: green;}
 */
     .todo p.time { color: #fff; }

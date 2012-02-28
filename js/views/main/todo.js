@@ -6,19 +6,35 @@ define(
 			className : 'todo',
 			tagName: "div",
 
-			initialize : function( options ) {
+			initialize : function() {
 				this.template = _.template( $('#todo-template').html() );
+				this.model.bind( 'change:completed', this.changed, this );
 			},
 
 			events : {
-				'click .mark-completed': 'markCompleted'
+				'click .mark-completed' : 'markCompleted'
 			},
 
 			markCompleted : function( e ) {
 				this.model.toggleCompleted();
 			},
 
+			changed : function( e ) {
+				switch( e.attributes.completed ) {
+					case true :
+						this.$el.css('background', '#c2c2c2' );
+						break;
+					case false :
+						this.$el.css('background', '#fff' );
+						break;
+				}
+			},
+
 			render : function() {
+				// Run to set css.
+				this.changed( this.model );
+
+
 				$(this.el).html( this.template({
 					todo : this.model.attributes
 				}));

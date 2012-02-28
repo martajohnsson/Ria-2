@@ -33,14 +33,13 @@ define([
       ],
 
       toggleCompleted : function() {
-       if ( this.attributes.completed === false ) {
+        if ( this.attributes.completed === false ) {
           this.set( { completed : true } );
         } else {
           this.set( { completed : false } );
         }
 
         this.save();
-
       },
       
       /**
