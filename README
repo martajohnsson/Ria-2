@@ -1,1 +1,9 @@
-This is my application for the course RIA.
+Simple TODO application.
+--------------------------------------------------------
+This is my first application using backbone.
+
+This applications uses the following libraries.
+* Backbone
+  * BackboneRelational
+  * Backbone.localStorage
+* Underscore
