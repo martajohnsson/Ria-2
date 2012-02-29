@@ -26,6 +26,7 @@ define([
 			},
 
 			Home : function() {
+
 				// Checks if no user in 
 				if ( this.userCollection.length == 0 ) {
 					this.navigate( 'createUser', { trigger : true, replace : true } );
@@ -37,7 +38,6 @@ define([
 				var categoryCollectionView = new CategoryCollectionView( { collection : this.categoryCollection } );
 				categoryCollectionView.render();
 
-				
 				$('#createTask').html( indexView.el );
 				$('#todos-holder').html( categoryCollectionView.el ); // router should be responsible for positioning
 			},
@@ -50,7 +50,6 @@ define([
 					createUserView.render();
 					
 					createUserView.on( 'userAdded', function( userModel ) {
-						console.log( "userAdded", userModel );
 						this.navigate('', { trigger : true } );
 						createUserView.remove();
 					}, this );

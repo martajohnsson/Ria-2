@@ -15,7 +15,14 @@ define([
 		},
 
 		comparator : function( model ) {
-			return -model.get( 'time' );
+			var completed = model.get('completed');
+			
+			if ( completed === true ) {
+				return model.get( 'time' );	
+			} else {
+				return -model.get('time');
+			}
+			
 		}
 	});
 

@@ -111,3 +111,19 @@ broswer so that i can be used localy without any user-complications.
 This renders a view from a template using Underscore.
 
 ------------------------------------------------------------
+FUTURE DEVELOPEMENT:
+------------------------------------------------------------
+This list is only a recommendation, you may add whatever
+funtionality you want and feel is needed.
+
+1. Add funtionality to remove a user and clear all the data.
+   ie. a "destory"-button on the right-upper corner.
+
+2. Add functionality for multi-user. Atm the application is
+   restricted to only one user per browser.
+
+3. Add functionality to add more categories. Atm the category
+   view appends new categories to the right.
+
+4. "Drag & drop" between categories.
+------------------------------------------------------------

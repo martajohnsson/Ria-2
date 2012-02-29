@@ -12,7 +12,12 @@ define(
 			},
 
 			events : {
-				'click .mark-completed' : 'markCompleted'
+				'click .mark-completed' : 'markCompleted',
+				'click .delete-todo' : 'delete'
+			},
+
+			delete : function() {
+				this.model.destroy();
 			},
 
 			markCompleted : function( e ) {
@@ -23,23 +28,22 @@ define(
 				switch( e.attributes.completed ) {
 					case true :
 						this.$el.css('background', '#c2c2c2' );
-						this.$('.mark-completed').attr( 'checked', true );
+						this.$('.todo-content').append('<p class="status">{ Completed }</p>');
 						break;
 					case false :
 						this.$el.css('background', '#fff' );
-						this.$('.mark-completed').attr( 'checked', false );
+						this.$('.todo-content p.status').remove();
 						break;
 				}
 			},
 
 			render : function() {
-				// Run to set css.
-				this.changed( this.model );
-
 				$(this.el).html( this.template({
 					todo : this.model.attributes
 				}));
-				
+
+				// Run changed to set the correct styling.
+				this.changed( this.model );
 				return this;
 			}
 		});

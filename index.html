@@ -41,23 +41,32 @@
 
     <!-- Todos -->
     <script type="text/template" id="todo-template">
-            <p><%= todo.content %> <input type="checkbox" name="completed" class="mark-completed" /></p>
-            <p><%= todo.time %></p>
+            <div class="todo-actions">
+                <img src="img/accept.png" alt="Complete task" title="Mark task as completed" class="mark-completed" />
+                <img src="img/cancel.png" alt="Delete" title="Delete task" class="delete-todo" />
+            </div>
+            <div class="todo-content">
+                <p><%= todo.content %></p>
+                <p class="user-info"><%= todo.user.attributes.name %></p>
+            </div>
     </script>
 
 </head>
 <body>
+     <div id="dimmer">
+            <div id="create-user">
+
+            </div>    
+        </div>
 	<div id="wrapper">
+
 		<div id="createTask">
 
 		</div>
         <div id="todos-holder">
            
         </div>
-
-        <div id="create-user">
-            
-        </div>
+       
 	</div>
 </body>
 </html>

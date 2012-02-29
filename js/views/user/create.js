@@ -10,18 +10,34 @@ define([
 			el : $('#create-user'),
 
 			initialize : function( userCollection ) {
+				// Show the dimmer.
+				$('#dimmer').css( 'display', 'block' );
+
 				this.template = _.template( $( '#create-user-template' ).html() );
 				this.userCollection = userCollection;
 
 				this.userCollection.on( 'add', this.addUser, this );
+
+			},
+
+			events : {
+				'click #submit-create-user-form' : 'submitCreateUserForm',
+				'keypress #input-username' : 'addOnEnter'
 			},
 
 			addUser : function( userModel ) {
 				userModel.save();
+
+				// remove the view and the dimmer.
+				this.$el.remove();
+				$('#dimmer').remove();
 			},
 
-			events : {
-				'click #submit-create-user-form' : 'submitCreateUserForm'
+			addOnEnter : function( e ) {
+				if ( e.keyCode == 13) {
+					this.submitCreateUserForm( e );
+					return false;
+				}
 			},
 
 			render : function() {
@@ -35,10 +51,11 @@ define([
 					var model = new UserModel( { name : username } );
 					this.userCollection.add( model );
 					
-					this.trigger('userAdded', model );
+					// Trigger a userAdded event.
+					this.trigger( 'userAdded' , model );
 
 				} catch( error ) {
-					console.log( "Error : ", error );
+					console.log( "Error : ", error.message );
 				}
 			}
 

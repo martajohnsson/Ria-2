@@ -19,6 +19,7 @@ define(
 					var categoryView = new CategoryView( { model : this.collection.at( i ) } );
 					this.$el.append(categoryView.render().$el);
 				}
+
 				return this;
 			}
 		});

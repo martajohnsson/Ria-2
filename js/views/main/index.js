@@ -21,7 +21,7 @@ define(
 
 			events : {
 				'click #submit-task-form' : 'submitForm',
-				'keypress' : 'addOnEnter'
+				'keypress .task-content' : 'addOnEnter'
 			},
 
 			addOne : function( taskModel ) {
@@ -29,9 +29,9 @@ define(
 			},
 
 			addOnEnter : function( e ) {
-				
-				if ( e.keyCode == 13 ) {
+				if ( e.keyCode == 13) {
 					this.submitForm( e );
+					return false;
 				}
 			},
 
@@ -42,24 +42,24 @@ define(
 			},
 
 			submitForm : function( e ) {
-				console.log( "e", e );
 				// Get the needed values for a task.
 				var taskContent = this.$('.task-content').val();
 				var taskCategoryId = this.$('.task-category').val();
 				var category = this.categoryCollection.get( taskCategoryId );
 				var user = this.userCollection.at( 0 );
-
+				
 				try {
+
 					this.taskCollection.create({
 						content : taskContent,
 						time : ( new Date() ).getTime(),
 						completed : false,
 						user : user,
 						category : category
-
 					});
+
 				} catch( error ) {
-					console.log( "Error: ", error.stack );
+					console.log( "Error: ", error.message );
 				}
 			}
 		});

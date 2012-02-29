@@ -21,7 +21,7 @@ define([
         */
       validate : function( attrs ) {
         if (  !attrs.content || !attrs.user || !attrs.category ) {
-               throw "The task object does not validate.";
+               throw new Error( "The task object does not validate." );
         }
       }  
     });
