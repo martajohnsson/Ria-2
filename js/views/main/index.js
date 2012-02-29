@@ -20,11 +20,19 @@ define(
 			},
 
 			events : {
-				'click #submit-task-form' : 'submitForm'
+				'click #submit-task-form' : 'submitForm',
+				'keypress' : 'addOnEnter'
 			},
 
 			addOne : function( taskModel ) {
 				taskModel.save();
+			},
+
+			addOnEnter : function( e ) {
+				
+				if ( e.keyCode == 13 ) {
+					this.submitForm( e );
+				}
 			},
 
 			render : function() {
@@ -34,6 +42,7 @@ define(
 			},
 
 			submitForm : function( e ) {
+				console.log( "e", e );
 				// Get the needed values for a task.
 				var taskContent = this.$('.task-content').val();
 				var taskCategoryId = this.$('.task-category').val();
@@ -43,7 +52,7 @@ define(
 				try {
 					this.taskCollection.create({
 						content : taskContent,
-						time : new Date(),
+						time : ( new Date() ).getTime(),
 						completed : false,
 						user : user,
 						category : category

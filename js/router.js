@@ -34,11 +34,8 @@ define([
 				var indexView = new IndexView( this.categoryCollection, this.taskCollection, this.userCollection );
 				indexView.render();
 
-				// Checks for tasks, if none dont show anything.
-				if ( this.taskCollection.models.length > 0 ) {
-					var categoryCollectionView = new CategoryCollectionView( { collection : this.categoryCollection } );
-					categoryCollectionView.render();
-				}
+				var categoryCollectionView = new CategoryCollectionView( { collection : this.categoryCollection } );
+				categoryCollectionView.render();
 
 				
 				$('#createTask').html( indexView.el );
@@ -50,7 +47,13 @@ define([
 					this.navigate( '', { trigger: true, replace : false } );	
 				} else {
 					var createUserView = new CreateUserView( this.userCollection );
-					createUserView.render();	
+					createUserView.render();
+					
+					createUserView.on( 'userAdded', function( userModel ) {
+						console.log( "userAdded", userModel );
+						this.navigate('', { trigger : true } );
+						createUserView.remove();
+					}, this );
 				}
 			},
 

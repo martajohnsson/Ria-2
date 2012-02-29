@@ -13,7 +13,7 @@ define([
 				this.template = _.template( $( '#create-user-template' ).html() );
 				this.userCollection = userCollection;
 
-				this.userCollection.bind( 'add', this.addUser, this );
+				this.userCollection.on( 'add', this.addUser, this );
 			},
 
 			addUser : function( userModel ) {
@@ -26,7 +26,6 @@ define([
 
 			render : function() {
 				$(this.el).html( this.template );
-				
 			},
 
 			submitCreateUserForm : function( e ) {
@@ -34,8 +33,9 @@ define([
 
 				try {
 					var model = new UserModel( { name : username } );
-					console.log( "Created User :", model );
 					this.userCollection.add( model );
+					
+					this.trigger('userAdded', model );
 
 				} catch( error ) {
 					console.log( "Error : ", error );

@@ -8,7 +8,7 @@
     <!-- Templates -->
     <script type="text/template" id="create-task-template">
         <div class="create-task-holder">
-            <form action="" method="POST" id="create-task-form">
+            <form method="POST" id="create-task-form">
                 <input type="text" name="task-content" class="task-content" size="60" />
         		<select name="select-category" id="create-task-select-category" class="task-category">
                     <% _.each( category, function( category ) { %>
@@ -23,7 +23,7 @@
     <!-- Create user template. -->
     <script type="text/template" id="create-user-template">
         <h2>Create user</h2>
-        <form action="" method="POST" id="create-user-form">
+        <form id="create-user-form">
             <label for="username">username:</label>
             <input type="text" name="username" id="input-username" />
             <input type="button" name="user-submit" id="submit-create-user-form" value="Create user" /> 

@@ -23,9 +23,11 @@ define(
 				switch( e.attributes.completed ) {
 					case true :
 						this.$el.css('background', '#c2c2c2' );
+						this.$('.mark-completed').attr( 'checked', true );
 						break;
 					case false :
 						this.$el.css('background', '#fff' );
+						this.$('.mark-completed').attr( 'checked', false );
 						break;
 				}
 			},
@@ -33,7 +35,6 @@ define(
 			render : function() {
 				// Run to set css.
 				this.changed( this.model );
-
 
 				$(this.el).html( this.template({
 					todo : this.model.attributes

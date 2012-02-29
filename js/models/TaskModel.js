@@ -1,37 +1,9 @@
 define([
-      'Backbone',
-      'UserCollection',
-      'CategoryCollection',
-      'models/UserModel',
-      'models/CategoryModel'
+      'Backbone'
     ],
-  function( Backbone, UserCollection, CategoryCollection, UserModel, CategoryModel ) {
+  function( Backbone ) {
     var TaskModel = Backbone.RelationalModel.extend({
-      relations : [
-        {
-          type : Backbone.HasOne,
-          key : 'user',
-          relatedModel : UserModel,
-          includeInJSON : Backbone.Model.prototype.idAttribute,
-          collectionType : UserCollection,
-          reverseRelation : {
-            type : Backbone.HasMany,
-            key : 'task'
-          }
-        },
-        {
-          type : Backbone.HasOne,
-          key : 'category',
-          relatedModel : CategoryModel,
-          includeInJSON : Backbone.Model.prototype.idAttribute,
-          collectionType : CategoryCollection,
-          reverseRelation : {
-            type : Backbone.HasMany,
-            key : 'task'
-          }
-        }
-      ],
-
+      
       toggleCompleted : function() {
         if ( this.attributes.completed === false ) {
           this.set( { completed : true } );
