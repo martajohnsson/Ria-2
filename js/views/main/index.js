@@ -26,6 +26,9 @@ define(
 
 			addOne : function( taskModel ) {
 				taskModel.save();
+
+				// Reset the text-input-field.
+				$('.task-content').val('')
 			},
 
 			addOnEnter : function( e ) {
