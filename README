@@ -7,7 +7,7 @@ as making the javascript application modular.
 This applications uses the following libraries:
 * Backbone
   * BackboneRelational
-  * Backbone.localStorage
+  * Backbone.localStoraUpge
 * Underscore
 * Require
   * Order
@@ -34,4 +34,7 @@ Upd
 5. Doubleclick on a task to edit.
 
 6. In some way, clear all completed tasks.
+
+7. Where am i abusing Require.js? (Sometimes it does not load
+   correctly. )
 ------------------------------------------------------------
