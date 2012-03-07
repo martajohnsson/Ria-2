@@ -20,7 +20,7 @@ define([
         * (throw error in backbone.) does not run set or save on model.
         */
       validate : function( attrs ) {
-        if (  !attrs.content || !attrs.user || !attrs.category ) {
+        if (  !attrs.content || !attrs.user || !attrs.category || !attrs.time || !attrs.completed) {
                throw new Error( "The task object does not validate." );
         }
       }  
