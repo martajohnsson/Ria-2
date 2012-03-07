@@ -29,10 +29,12 @@ define(
 					case true :
 						this.$el.css('background', '#c2c2c2' );
 						this.$('.todo-content').append('<p class="status">{ Completed }</p>');
+						this.$('.todo-actions .mark-completed').attr('title','Unmark task as completed');
 						break;
 					case false :
 						this.$el.css('background', '#fff' );
 						this.$('.todo-content p.status').remove();
+						this.$('.todo-actions .mark-completed').attr('title','Mark task as completed');
 						break;
 				}
 			},
