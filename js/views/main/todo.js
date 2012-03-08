@@ -21,6 +21,7 @@ define(
 			},
 
 			markCompleted : function( e ) {
+				console.log( "MOdel", this.model );
 				this.model.toggleCompleted();
 			},
 
