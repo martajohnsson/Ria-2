@@ -20,6 +20,7 @@ define(
 			},
 
 			events : {
+			    'click #clear-completed' : 'clearCompleted',
 				'click #submit-task-form' : 'submitForm',
 				'keypress .task-content' : 'addOnEnter'
 			},
@@ -29,6 +30,21 @@ define(
 
 				// Reset the text-input-field.
 				$('.task-content').val('')
+			},
+			
+			clearCompleted : function () {
+			    var length = this.taskCollection.length;
+			    var removeArr = Array();
+			    for (var i = 0; i  < length; i++) {
+				    if (this.taskCollection.models[i].attributes.completed) {
+				        removeArr.push(this.taskCollection.models[i]);
+				    }
+				};
+				
+				length = removeArr.length;
+				for (var i = 0; i < length; i++) {
+                    removeArr[i].destroy();
+				};
 			},
 
 			addOnEnter : function( e ) {

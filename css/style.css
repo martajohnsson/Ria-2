@@ -30,6 +30,7 @@ h1 { font-size: 32px; line-height: 55px; text-shadow: 1px 1px 1px #B8B8B8; }
 h2 { font-size: 20px; line-height: 38px; text-shadow: 1px 1px 1px #B8B8B8; }
 h3 { font-size: 16px; line-height: 32px; text-shadow: 1px 1px 1px #B8B8B8; }
 p { font-size: 12px; line-height: 18px; }
+form { display: inline; }
 
 /* Wrapper */
 #wrapper { width: 100%; height: 99%; overflow-y: hidden; overflow-x: visible; }
