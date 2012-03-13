@@ -26,7 +26,7 @@ define([
 			  */
 			validate : function( attrs ) {
 			if (  !attrs.label ) {
-			       throw new Error( "The category object does not validate." ); 
+			       return "The category object does not validate."; 
 				}
 			}
 		});
