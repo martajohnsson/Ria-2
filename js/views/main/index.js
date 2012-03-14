@@ -67,19 +67,22 @@ define(
 				var category = this.categoryCollection.get( taskCategoryId );
 				var user = this.userCollection.at( 0 );
 				
-				try {
-
-					this.taskCollection.create({
-						content : taskContent,
-						time : ( new Date() ).getTime(),
-						completed : false,
-						user : user,
-						category : category
-					});
-
-				} catch( error ) {
-					console.log( "Error: ", error.message );
-				}
+				var taskModel =	new TaskModel({
+					content : taskContent,
+					time : ( new Date() ).getTime(),
+					completed : false,
+					user : user,
+					category : category
+				});
+                    
+                if(taskModel.isValid())
+                    this.taskCollection.add(taskModel);
+                else
+                {
+                    category.get("task").remove(taskModel)
+                    console.log("Error: Model is not valid");
+                }
+					   
 			}
 		});
 
