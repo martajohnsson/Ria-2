@@ -18,6 +18,8 @@
                 <input type="button" name="task-submit" id="submit-task-form" value="Add task" />
         	</form>
             <input type="button" name="clear-completed" id="clear-completed" value="Clear completed tasks" />
+            <a href="#newCategory"><input type="button" name="new-category" id="new-category" value="Add new category" /></a>
+            
         </div>
     </script>
 
@@ -28,6 +30,16 @@
             <label for="username">username:</label>
             <input type="text" name="username" id="input-username" />
             <input type="button" name="user-submit" id="submit-create-user-form" value="Create user" /> 
+        </form>
+    </script>
+    
+    <!-- Create category template. -->
+    <script type="text/template" id="create-category-template">
+        <h2>Create category</h2>
+        <form id="create-category-form">
+            <label for="category">category:</label>
+            <input type="text" name="category" id="input-category"/>
+            <input type="button" name="category-submit" id="submit-create-category-form" value="Create category" /> 
         </form>
     </script>
 
@@ -55,16 +67,22 @@
 </head>
 <body>
      <div id="dimmer">
-            <div id="create-user">
-
-            </div>    
-        </div>
+        <div id="create-user">
+        </div>  
+    </div>
+    
+    <div id="category-dimmer">
+        <div id="new-category-div">
+        </div>  
+    </div>
+   
+    
 	<div id="wrapper">
 
 		<div id="createTask">
 
-		</div>
-        <div id="todos-holder">
+    		</div>
+            <div id="todos-holder">
            
         </div>
        

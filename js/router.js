@@ -8,9 +8,10 @@ define([
 	'TodoEventCollection',
 	'views/main/index',
 	'views/user/create',
-	'views/main/categorycollectionview'],
+	'views/main/categorycollectionview',
+    'views/category/newCategory'],
 
-	function( $, _, Backbone, CategoryCollection, TaskCollection, UserCollection, TodoEventCollection, IndexView, CreateUserView, CategoryCollectionView ) {
+	function( $, _, Backbone, CategoryCollection, TaskCollection, UserCollection, TodoEventCollection, IndexView, CreateUserView, CategoryCollectionView, NewCategoryView ) {
 		return AppRouter = Backbone.Router.extend({
 			initialize : function() {
 				this.categoryCollection = new CategoryCollection();
@@ -22,6 +23,7 @@ define([
 			routes : {
 				'' : 'Home',
 				'createUser' : 'CreateUser',
+                'newCategory' : 'NewCategory',
 				'*actions' : 'defaultAction'
 			},
 
@@ -55,6 +57,16 @@ define([
 					}, this );
 				}
 			},
+            
+            NewCategory : function() {
+                var newCategoryView = new NewCategoryView(this.categoryCollection);
+                newCategoryView.render();
+                
+                newCategoryView.on( 'categoryAdded', function( categoryModel ) {
+					this.navigate('', { trigger : true } );
+					newCategoryView.remove();
+				}, this );
+            },
 
 			defaultAction : function( actions ) {
 				console.log( 'No route:', actions );
